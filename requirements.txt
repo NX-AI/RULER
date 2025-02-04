@@ -1,0 +1,16 @@
+nemo-toolkit[all]
+tritonclient[all]
+transformer_engine[pytorch]
+flask
+flask_restful
+html2text
+google-generativeai
+sshtunnel_requests
+wonderwords
+openai
+tiktoken
+tenacity
+accelerate
+huggingface_hub
+transformers
+vllm

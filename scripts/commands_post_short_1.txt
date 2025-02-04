@@ -1,0 +1,6 @@
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-short-nh16/synthetic/131072/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-short-nh16/synthetic/65536/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-short-nh16/synthetic/32768/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-short-nh16/synthetic/16384/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-short-nh16/synthetic/8192/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-short-nh16/synthetic/4096/pred --benchmark synthetic

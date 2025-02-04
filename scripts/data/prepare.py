@@ -82,7 +82,7 @@ def main():
     config.update(tasks_base[config['task']])
 
     # Add templates
-    assert args.model_template_type in Templates, print(f'{args.model_template_type} is not found in {Templates.keys()}')
+    assert args.model_template_type in Templates, f'{args.model_template_type} is not found in {Templates.keys()}'
     model_template = Templates[args.model_template_type]    
     task_template = config['template']
 

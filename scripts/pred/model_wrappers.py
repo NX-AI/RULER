@@ -29,7 +29,7 @@ class HuggingFaceModel:
             model_kwargs = None
         else:
             model_kwargs = {"attn_implementation": "flash_attention_2"}
-        
+        print("NAMEORPATH", name_or_path)
         try:
             self.pipeline = pipeline(
                 "text-generation",
@@ -47,7 +47,7 @@ class HuggingFaceModel:
         self.generation_kwargs = generation_kwargs
         self.stop = self.generation_kwargs.pop('stop')
 
-        if self.tokenizer.pad_token is None:
+        if self.tokenizer.pad_token is None: #  and ("llama" in name_or_path or "v6-Finch" in name_or_path):
             # add pad token to allow batching (known issue for llama2)
             self.tokenizer.padding_side = 'left'
             self.tokenizer.pad_token = self.tokenizer.eos_token

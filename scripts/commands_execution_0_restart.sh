@@ -1,0 +1,1 @@
+PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python pred/call_api.py --data_dir benchmark_root/rwkv5-7b/synthetic/4096/data --save_dir benchmark_root/rwkv5-7b/synthetic/4096/pred --benchmark synthetic --task qa_2 --server_type hf --model_name_or_path RWKV/v5-Eagle-7B-HF --temperature 0.0 --top_k 32 --top_p 1.0 --batch_size 1

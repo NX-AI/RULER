@@ -1,0 +1,6 @@
+python eval/evaluate.py --data_dir benchmark_root/rwkv5-7b/synthetic/131072/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/rwkv5-7b/synthetic/65536/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/rwkv5-7b/synthetic/32768/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/rwkv5-7b/synthetic/16384/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/rwkv5-7b/synthetic/8192/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/rwkv5-7b/synthetic/4096/pred --benchmark synthetic

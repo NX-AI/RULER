@@ -1,0 +1,12 @@
+python eval/evaluate.py --data_dir benchmark_root/llama3.1-8b/synthetic/131072/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/llama3.1-8b/synthetic/65536/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/llama3.1-8b/synthetic/32768/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/llama3.1-8b/synthetic/16384/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/llama3.1-8b/synthetic/8192/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/llama3.1-8b/synthetic/4096/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-longctx/synthetic/131072/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-longctx/synthetic/65536/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-longctx/synthetic/32768/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-longctx/synthetic/16384/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-longctx/synthetic/8192/pred --benchmark synthetic
+python eval/evaluate.py --data_dir benchmark_root/xLSTM-7b-longctx/synthetic/4096/pred --benchmark synthetic

@@ -25,7 +25,7 @@ fi
 # Root Directories
 GPUS="1" # GPU size for tensor_parallel.
 ROOT_DIR="benchmark_root" # the path that stores generated task samples and model predictions.
-MODEL_DIR="../.." # the path that contains individual model folders from HUggingface.
+MODEL_DIR="../models/" # the path that contains individual model folders from HUggingface.
 ENGINE_DIR="." # the path that contains individual engine folders from TensorRT-LLM.
 BATCH_SIZE=1  # increase to improve GPU utilization
 
@@ -95,7 +95,8 @@ for MAX_SEQ_LENGTH in "${SEQ_LENGTHS[@]}"; do
     mkdir -p ${PRED_DIR}
     
     for TASK in "${TASKS[@]}"; do
-        python data/prepare.py \
+        echo \
+        PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python data/prepare.py \
             --save_dir ${DATA_DIR} \
             --benchmark ${BENCHMARK} \
             --task ${TASK} \
@@ -104,10 +105,11 @@ for MAX_SEQ_LENGTH in "${SEQ_LENGTHS[@]}"; do
             --max_seq_length ${MAX_SEQ_LENGTH} \
             --model_template_type ${MODEL_TEMPLATE_TYPE} \
             --num_samples ${NUM_SAMPLES} \
-            ${REMOVE_NEWLINE_TAB}
+            ${REMOVE_NEWLINE_TAB} >> commands_preparation_0.txt
         
         start_time=$(date +%s)
-        python pred/call_api.py \
+        echo \
+        PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True python pred/call_api.py \
             --data_dir ${DATA_DIR} \
             --save_dir ${PRED_DIR} \
             --benchmark ${BENCHMARK} \
@@ -118,15 +120,15 @@ for MAX_SEQ_LENGTH in "${SEQ_LENGTHS[@]}"; do
             --top_k ${TOP_K} \
             --top_p ${TOP_P} \
             --batch_size ${BATCH_SIZE} \
-            ${STOP_WORDS}
+            ${STOP_WORDS} >> commands_execution_0.txt
         end_time=$(date +%s)
         time_diff=$((end_time - start_time))
         total_time=$((total_time + time_diff))
     done
-    
+    echo \
     python eval/evaluate.py \
         --data_dir ${PRED_DIR} \
-        --benchmark ${BENCHMARK}
+        --benchmark ${BENCHMARK} >> commands_post_0.txt
 done
 
 echo "Total time spent on call_api: $total_time seconds"
